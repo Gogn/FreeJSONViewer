@@ -92,16 +92,16 @@ button {
   flex-direction: column;
 }
 
-/* ── Header ── */
+/* ── Header (unified bar: title + tabs + actions) ── */
 .header {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 16px;
+  align-items: stretch;
   height: 46px;
   background: var(--surface);
   border-bottom: 1px solid var(--border);
   flex-shrink: 0;
+  padding: 0 12px;
+  gap: 4px;
 }
 
 .header-title {
@@ -109,11 +109,28 @@ button {
   font-weight: 600;
   letter-spacing: 0.4px;
   color: var(--text);
+  align-self: center;
+  white-space: nowrap;
+  padding: 0 6px;
+}
+
+.header-separator {
+  width: 1px;
+  background: var(--border);
+  margin: 10px 6px;
+  flex-shrink: 0;
+}
+
+.header-tabs {
+  display: flex;
+  align-items: stretch;
 }
 
 .header-actions {
   display: flex;
+  align-items: center;
   gap: 4px;
+  margin-left: auto;
 }
 
 /* ── Buttons ── */
@@ -185,15 +202,7 @@ button {
   color: var(--text);
 }
 
-/* ── Tab Bar ── */
-.tab-bar {
-  display: flex;
-  background: var(--surface);
-  border-bottom: 1px solid var(--border);
-  flex-shrink: 0;
-  padding: 0 12px;
-}
-
+/* ── Tab buttons ── */
 .tab-btn {
   background: none;
   border: none;

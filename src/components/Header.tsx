@@ -1,4 +1,4 @@
-import { Theme } from '../types';
+import { Theme, ActiveTab, ErrorMode } from '../types';
 
 const SunIcon = () => (
   <svg
@@ -70,6 +70,10 @@ interface HeaderProps {
   onSettingsOpen: () => void;
   onAboutOpen: () => void;
   onSupportOpen: () => void;
+  activeTab: ActiveTab;
+  onTabChange: (tab: ActiveTab) => void;
+  hasError: boolean;
+  errorMode: ErrorMode;
 }
 
 export default function Header({
@@ -78,10 +82,36 @@ export default function Header({
   onSettingsOpen,
   onAboutOpen,
   onSupportOpen,
+  activeTab,
+  onTabChange,
+  hasError,
+  errorMode,
 }: HeaderProps) {
+  const treeDisabled = hasError && errorMode === 'disable';
+
   return (
     <header className="header">
       <span className="header-title">JSON Viewer</span>
+
+      <div className="header-separator" />
+
+      <div className="header-tabs">
+        <button
+          className={`tab-btn${activeTab === 'raw' ? ' active' : ''}`}
+          onClick={() => onTabChange('raw')}
+        >
+          Raw Text
+        </button>
+        <button
+          className={`tab-btn${activeTab === 'tree' ? ' active' : ''}`}
+          onClick={() => !treeDisabled && onTabChange('tree')}
+          disabled={treeDisabled}
+          title={treeDisabled ? 'Fix JSON errors to enable tree view' : undefined}
+        >
+          Tree Viewer
+        </button>
+      </div>
+
       <div className="header-actions">
         <button className="support-header-btn" onClick={onSupportOpen} title="Support this project">
           <svg

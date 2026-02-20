@@ -3,7 +3,6 @@ import { useTheme } from './hooks/useTheme';
 import { useSettings } from './hooks/useSettings';
 import { useJsonParser } from './hooks/useJsonParser';
 import Header from './components/Header';
-import TabBar from './components/TabBar';
 import ErrorDisplay from './components/ErrorDisplay';
 import SettingsModal from './components/SettingsModal';
 import AboutModal from './components/AboutModal';
@@ -43,9 +42,6 @@ export default function App() {
         onSettingsOpen={() => setSettingsOpen(true)}
         onAboutOpen={() => setAboutOpen(true)}
         onSupportOpen={() => setsupportOpen(true)}
-      />
-
-      <TabBar
         activeTab={activeTab}
         onTabChange={setActiveTab}
         hasError={!!error}
