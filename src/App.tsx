@@ -19,7 +19,7 @@ export default function App() {
   const [activeTab, setActiveTab] = useState<ActiveTab>('raw');
   const [settingsOpen, setSettingsOpen] = useState(false);
   const [aboutOpen, setAboutOpen] = useState(false);
-  const [supportOpen, setsupportOpen] = useState(false);
+  const [supportOpen, setSupportOpen] = useState(false);
   const [bannerDismissed, setBannerDismissed] = useState(false);
 
   const { data, error } = useJsonParser(input);
@@ -41,7 +41,7 @@ export default function App() {
         onThemeToggle={toggleTheme}
         onSettingsOpen={() => setSettingsOpen(true)}
         onAboutOpen={() => setAboutOpen(true)}
-        onSupportOpen={() => setsupportOpen(true)}
+        onSupportOpen={() => setSupportOpen(true)}
         activeTab={activeTab}
         onTabChange={setActiveTab}
         hasError={!!error}
@@ -71,7 +71,7 @@ export default function App() {
       )}
 
       {aboutOpen && <AboutModal onClose={() => setAboutOpen(false)} />}
-      {supportOpen && <SupportModal onClose={() => setsupportOpen(false)} />}
+      {supportOpen && <SupportModal onClose={() => setSupportOpen(false)} />}
     </div>
   );
 }
