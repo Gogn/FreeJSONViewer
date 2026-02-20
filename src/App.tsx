@@ -7,6 +7,7 @@ import TabBar from './components/TabBar';
 import ErrorDisplay from './components/ErrorDisplay';
 import SettingsModal from './components/SettingsModal';
 import AboutModal from './components/AboutModal';
+import SupportModal from './components/SupportModal.tsx';
 import RawText from './components/RawText/RawText';
 import TreeViewer from './components/TreeViewer/TreeViewer';
 import { ActiveTab } from './types';
@@ -19,6 +20,7 @@ export default function App() {
   const [activeTab, setActiveTab] = useState<ActiveTab>('raw');
   const [settingsOpen, setSettingsOpen] = useState(false);
   const [aboutOpen, setAboutOpen] = useState(false);
+  const [supportOpen, setsupportOpen] = useState(false);
   const [bannerDismissed, setBannerDismissed] = useState(false);
 
   const { data, error } = useJsonParser(input);
@@ -40,6 +42,7 @@ export default function App() {
         onThemeToggle={toggleTheme}
         onSettingsOpen={() => setSettingsOpen(true)}
         onAboutOpen={() => setAboutOpen(true)}
+        onSupportOpen={() => setsupportOpen(true)}
       />
 
       <TabBar
@@ -72,6 +75,7 @@ export default function App() {
       )}
 
       {aboutOpen && <AboutModal onClose={() => setAboutOpen(false)} />}
+      {supportOpen && <SupportModal onClose={() => setsupportOpen(false)} />}
     </div>
   );
 }

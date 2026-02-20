@@ -4,21 +4,6 @@ interface AboutModalProps {
   onClose: () => void;
 }
 
-const FEATURES = [
-  {
-    label: 'Tree Viewer',
-    desc: 'Explore nested JSON with collapsible nodes and syntax highlighting.',
-  },
-  { label: 'Search', desc: 'Filter keys and values across the entire tree in real time.' },
-  { label: 'JSON Path', desc: 'Click any node to reveal its path (e.g. $.user.address.city).' },
-  { label: 'Format / Minify', desc: 'Pretty-print or compact your JSON with one click.' },
-  {
-    label: 'Error Handling',
-    desc: 'Configurable modes: inline, banner, both, or disable tree view.',
-  },
-  { label: 'Theme', desc: 'Dark and light mode, persisted across sessions.' },
-];
-
 export default function AboutModal({ onClose }: AboutModalProps) {
   const handleKeyDown = useCallback(
     (e: KeyboardEvent) => {
@@ -26,6 +11,8 @@ export default function AboutModal({ onClose }: AboutModalProps) {
     },
     [onClose],
   );
+
+  const PAYPAL_URL = import.meta.env.VITE_PAYPAL_URL;
 
   useEffect(() => {
     document.addEventListener('keydown', handleKeyDown);
@@ -54,22 +41,19 @@ export default function AboutModal({ onClose }: AboutModalProps) {
         </div>
 
         <p className="about-description">
-          A minimal, browser-based tool for exploring and editing JSON. Paste or type JSON to
-          instantly visualise its structure, search through its contents, and copy paths to any node
-          — no server, no tracking, everything stays in your browser.
+          A minimal, browser-based tool for exploring and editing JSON. Completely free and open
+          source. No data tracking, no ads, no analytics, no telemetry. Your data stays in your
+          browser. Built with React and TypeScript, available on GitHub.
         </p>
 
-        <p className="modal-section-title" style={{ marginTop: '20px' }}>
-          Features
+        <br></br>
+
+        <p className="about-description">
+          If it saves you time every day, consider buying me a coffee
         </p>
-        <ul className="about-features">
-          {FEATURES.map((f) => (
-            <li key={f.label} className="about-feature-item">
-              <span className="about-feature-label">{f.label}</span>
-              <span className="about-feature-desc">{f.desc}</span>
-            </li>
-          ))}
-        </ul>
+        <p className="support-text">
+          <a href={PAYPAL_URL} target="_blank" rel="noopener noreferrer">{PAYPAL_URL}</a>
+        </p>
       </div>
     </div>
   );
