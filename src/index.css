@@ -69,7 +69,7 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
   background: var(--bg);
   color: var(--text);
-  font-size: 14px;
+  font-size: 17px;
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
 }
@@ -100,24 +100,24 @@ button {
   background: var(--surface);
   border-bottom: 1px solid var(--border);
   flex-shrink: 0;
-  padding: 0 12px;
-  gap: 4px;
+  padding: 0 14px;
+  gap: 5px;
 }
 
 .header-title {
-  font-size: 13px;
+  font-size: 16px;
   font-weight: 600;
   letter-spacing: 0.4px;
   color: var(--text);
   align-self: center;
   white-space: nowrap;
-  padding: 0 6px;
+  padding: 0 7px;
 }
 
 .header-separator {
   width: 1px;
   background: var(--border);
-  margin: 10px 6px;
+  margin: 12px 7px;
   flex-shrink: 0;
 }
 
@@ -129,7 +129,7 @@ button {
 .header-actions {
   display: flex;
   align-items: center;
-  gap: 4px;
+  gap: 5px;
   margin-left: auto;
 }
 
@@ -140,7 +140,7 @@ button {
   border-radius: 6px;
   cursor: pointer;
   color: var(--text-muted);
-  padding: 6px;
+  padding: 7px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -163,8 +163,8 @@ button {
   border-radius: 5px;
   cursor: pointer;
   color: var(--text);
-  padding: 4px 12px;
-  font-size: 12px;
+  padding: 5px 14px;
+  font-size: 14px;
   font-weight: 500;
   transition: background 0.15s;
   white-space: nowrap;
@@ -209,8 +209,8 @@ button {
   border-bottom: 2px solid transparent;
   cursor: pointer;
   color: var(--text-muted);
-  padding: 9px 14px;
-  font-size: 13px;
+  padding: 11px 17px;
+  font-size: 16px;
   font-weight: 500;
   transition:
     color 0.15s,
@@ -239,8 +239,8 @@ button {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 7px 16px;
-  font-size: 12px;
+  padding: 8px 19px;
+  font-size: 14px;
   font-family: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', monospace;
   flex-shrink: 0;
 }
@@ -248,7 +248,7 @@ button {
 .error-banner-msg {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
   min-width: 0;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -259,11 +259,11 @@ button {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 16px;
-  height: 16px;
+  width: 19px;
+  height: 19px;
   border-radius: 50%;
   border: 1.5px solid currentColor;
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 700;
   flex-shrink: 0;
 }
@@ -273,12 +273,12 @@ button {
   border: none;
   cursor: pointer;
   color: var(--error-text);
-  font-size: 18px;
+  font-size: 22px;
   padding: 0 2px;
   opacity: 0.6;
   line-height: 1;
   flex-shrink: 0;
-  margin-left: 12px;
+  margin-left: 14px;
 }
 
 .error-banner-close:hover {
@@ -296,8 +296,8 @@ button {
 .raw-toolbar {
   display: flex;
   align-items: center;
-  gap: 6px;
-  padding: 7px 14px;
+  gap: 7px;
+  padding: 8px 17px;
   background: var(--surface);
   border-bottom: 1px solid var(--border);
   flex-shrink: 0;
@@ -305,7 +305,7 @@ button {
 
 .toolbar-separator {
   width: 1px;
-  height: 18px;
+  height: 22px;
   background: var(--border);
   margin: 0 2px;
 }
@@ -318,9 +318,9 @@ button {
   border: none;
   border-left: 2px solid transparent;
   outline: none;
-  padding: 16px;
+  padding: 19px;
   font-family: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', ui-monospace, monospace;
-  font-size: 13px;
+  font-size: 16px;
   line-height: 1.7;
   tab-size: 2;
   transition: border-color 0.15s;
@@ -338,8 +338,8 @@ button {
 .raw-error-inline {
   background: var(--error-bg);
   color: var(--error-text);
-  padding: 6px 16px;
-  font-size: 12px;
+  padding: 7px 19px;
+  font-size: 14px;
   font-family: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', ui-monospace, monospace;
   border-top: 1px solid var(--error-border);
   flex-shrink: 0;
@@ -356,8 +356,8 @@ button {
 .tree-toolbar {
   display: flex;
   align-items: center;
-  gap: 6px;
-  padding: 7px 14px;
+  gap: 7px;
+  padding: 8px 17px;
   background: var(--surface);
   border-bottom: 1px solid var(--border);
   flex-shrink: 0;
@@ -368,10 +368,10 @@ button {
   border: 1px solid var(--border);
   border-radius: 5px;
   color: var(--text);
-  padding: 4px 10px;
-  font-size: 12px;
+  padding: 5px 12px;
+  font-size: 14px;
   outline: none;
-  width: 220px;
+  width: 264px;
   transition: border-color 0.15s;
   font-family: inherit;
 }
@@ -391,7 +391,7 @@ button {
 .tree-scroll {
   flex: 1;
   overflow: auto;
-  padding: 10px 0;
+  padding: 12px 0;
 }
 
 .tree-empty {
@@ -400,25 +400,25 @@ button {
   justify-content: center;
   height: 100%;
   color: var(--text-muted);
-  font-size: 13px;
+  font-size: 16px;
 }
 
 .tree-path-bar {
   background: var(--surface);
   border-top: 1px solid var(--border);
-  padding: 5px 14px;
+  padding: 6px 17px;
   font-family: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', ui-monospace, monospace;
-  font-size: 12px;
+  font-size: 14px;
   color: var(--text-muted);
   flex-shrink: 0;
-  min-height: 30px;
+  min-height: 36px;
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
 }
 
 .tree-path-label {
-  font-size: 10px;
+  font-size: 12px;
   text-transform: uppercase;
   letter-spacing: 0.5px;
   opacity: 0.6;
@@ -434,7 +434,7 @@ button {
 }
 
 .path-copy-btn {
-  padding: 3px;
+  padding: 4px;
   color: var(--text-muted);
 }
 
@@ -442,7 +442,7 @@ button {
 .tree-row {
   display: flex;
   align-items: baseline;
-  padding: 1px 16px;
+  padding: 1px 19px;
   cursor: pointer;
   transition: background 0.1s;
   user-select: none;
@@ -466,8 +466,8 @@ button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 18px;
-  height: 18px;
+  width: 22px;
+  height: 22px;
   flex-shrink: 0;
   color: var(--text-muted);
   margin-right: 2px;
@@ -475,14 +475,14 @@ button {
 
 .tree-spacer {
   display: inline-block;
-  width: 18px;
+  width: 22px;
   flex-shrink: 0;
   margin-right: 2px;
 }
 
 .tree-key {
   font-family: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', ui-monospace, monospace;
-  font-size: 13px;
+  font-size: 16px;
   color: var(--json-key);
   line-height: 1.7;
 }
@@ -499,48 +499,48 @@ button {
 
 .tree-colon {
   font-family: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', ui-monospace, monospace;
-  font-size: 13px;
+  font-size: 16px;
   color: var(--text-muted);
-  margin: 0 5px 0 1px;
+  margin: 0 6px 0 1px;
   line-height: 1.7;
 }
 
 .tree-bracket {
   font-family: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', ui-monospace, monospace;
-  font-size: 13px;
+  font-size: 16px;
   color: var(--text-muted);
   line-height: 1.7;
 }
 
 .tree-preview {
   font-family: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', ui-monospace, monospace;
-  font-size: 11px;
+  font-size: 13px;
   color: var(--text-muted);
-  margin: 0 4px;
+  margin: 0 5px;
   opacity: 0.7;
 }
 
 .json-string {
   font-family: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', ui-monospace, monospace;
-  font-size: 13px;
+  font-size: 16px;
   color: var(--json-string);
   line-height: 1.7;
 }
 .json-number {
   font-family: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', ui-monospace, monospace;
-  font-size: 13px;
+  font-size: 16px;
   color: var(--json-number);
   line-height: 1.7;
 }
 .json-boolean {
   font-family: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', ui-monospace, monospace;
-  font-size: 13px;
+  font-size: 16px;
   color: var(--json-boolean);
   line-height: 1.7;
 }
 .json-null {
   font-family: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', ui-monospace, monospace;
-  font-size: 13px;
+  font-size: 16px;
   color: var(--json-null);
   line-height: 1.7;
 }
@@ -561,8 +561,8 @@ button {
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: 10px;
-  padding: 24px;
-  width: 380px;
+  padding: 29px;
+  width: 456px;
   max-width: 92vw;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
 }
@@ -571,12 +571,20 @@ button {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 20px;
+  margin-bottom: 24px;
 }
 
 .modal-title {
-  font-size: 15px;
+  font-size: 18px;
   font-weight: 600;
+}
+
+.modal-section-title {
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  color: var(--text-muted);
+  margin-bottom: 12px;
 }
 
 .modal-radio-group {
@@ -588,8 +596,8 @@ button {
 .modal-radio-label {
   display: flex;
   align-items: flex-start;
-  gap: 10px;
-  padding: 8px 10px;
+  gap: 12px;
+  padding: 10px 12px;
   border-radius: 6px;
   cursor: pointer;
   transition: background 0.1s;
@@ -607,46 +615,76 @@ button {
 
 .modal-radio-name {
   display: block;
-  font-size: 13px;
+  font-size: 16px;
   font-weight: 500;
 }
 
 .modal-radio-desc {
   display: block;
-  font-size: 12px;
+  font-size: 14px;
   color: var(--text-muted);
   margin-top: 2px;
 }
 
 .modal-footer {
-  margin-top: 24px;
+  margin-top: 29px;
   display: flex;
   justify-content: flex-end;
-  gap: 8px;
+  gap: 10px;
 }
 
 /* ── About Modal ── */
 .about-modal {
-  width: 440px;
+  width: 528px;
 }
 
 .about-description {
-  font-size: 13px;
+  font-size: 16px;
   line-height: 1.7;
   color: var(--text-muted);
 }
 
-/* ── support header button ── */
+.about-features {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.about-feature-item {
+  display: flex;
+  flex-direction: column;
+  padding: 10px 12px;
+  border-radius: 6px;
+  transition: background 0.1s;
+}
+
+.about-feature-item:hover {
+  background: var(--surface2);
+}
+
+.about-feature-label {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.about-feature-desc {
+  font-size: 14px;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+/* ── Support header button ── */
 .support-header-btn {
   display: flex;
   align-items: center;
-  gap: 5px;
+  gap: 6px;
   background: var(--support-bg, #e0474c);
   color: #fff;
   border: none;
   border-radius: 6px;
-  padding: 5px 11px;
-  font-size: 12px;
+  padding: 6px 13px;
+  font-size: 14px;
   font-weight: 600;
   font-family: inherit;
   cursor: pointer;
@@ -665,56 +703,56 @@ button {
   transform: translateY(0);
 }
 
-/* ── support Modal ── */
+/* ── Support Modal ── */
 .support-modal {
-  width: 400px;
+  width: 480px;
   text-align: center;
   position: relative;
-  padding: 36px 32px 28px;
+  padding: 43px 38px 34px;
 }
 
 .support-modal-close {
   position: absolute;
-  top: 14px;
-  right: 14px;
+  top: 17px;
+  right: 17px;
 }
 
 .support-heart {
   color: #e0474c;
-  margin-bottom: 12px;
+  margin-bottom: 14px;
   line-height: 1;
 }
 
 .support-title {
-  font-size: 20px;
+  font-size: 24px;
   font-weight: 700;
-  margin-bottom: 12px;
+  margin-bottom: 14px;
 }
 
 .support-text {
-  font-size: 13px;
+  font-size: 16px;
   line-height: 1.7;
   color: var(--text-muted);
-  margin-bottom: 16px;
+  margin-bottom: 19px;
 }
 
 .support-perks {
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 6px;
-  margin-bottom: 24px;
+  gap: 7px;
+  margin-bottom: 29px;
   text-align: left;
-  padding: 14px 16px;
+  padding: 17px 19px;
   background: var(--surface2);
   border-radius: 8px;
   border: 1px solid var(--border);
 }
 
 .support-perks li {
-  font-size: 12px;
+  font-size: 14px;
   color: var(--text-muted);
-  padding-left: 16px;
+  padding-left: 19px;
   position: relative;
 }
 
@@ -728,18 +766,18 @@ button {
 
 .support-btn {
   width: 100%;
-  padding: 12px;
+  padding: 14px;
   background: #0070ba;
   color: #fff;
   border: none;
   border-radius: 8px;
-  font-size: 14px;
+  font-size: 17px;
   font-weight: 700;
   font-family: inherit;
   cursor: pointer;
   transition: opacity 0.15s;
   letter-spacing: 0.2px;
-  margin-bottom: 14px;
+  margin-bottom: 17px;
 }
 
 .support-btn:hover {
@@ -747,6 +785,6 @@ button {
 }
 
 .support-footer {
-  font-size: 12px;
+  font-size: 14px;
   color: var(--text-muted);
 }

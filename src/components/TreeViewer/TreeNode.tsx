@@ -69,7 +69,7 @@ function TreeNodeInner({
   const isSelected = selectedPath === path;
   const isMatch = search ? nodeMatchesSearch(nodeKey, value, search) : false;
 
-  const indent = 16 + depth * 20;
+  const indent = 19 + depth * 24;
 
   const handleToggle = (e: React.MouseEvent) => {
     e.stopPropagation();
