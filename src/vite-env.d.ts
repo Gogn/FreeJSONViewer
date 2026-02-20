@@ -2,6 +2,7 @@
 
 interface ImportMetaEnv {
   readonly VITE_PAYPAL_URL: string;
+  readonly VITE_GITHUB_URL: string;
 }
 
 interface ImportMeta {

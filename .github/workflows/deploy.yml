@@ -36,6 +36,7 @@ jobs:
         run: npm run build -- --base=/${{ github.event.repository.name }}/
         env:
           VITE_PAYPAL_URL: ${{ secrets.VITE_PAYPAL_URL }}
+          VITE_GITHUB_URL: ${{ github.server_url }}/${{ github.repository }}
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
