@@ -2,7 +2,7 @@
 
 A clean, fast, browser-based JSON viewer. Paste your JSON, explore it — no servers, no accounts, no nonsense.
 
-**[Try it live →](https://github.com/Gogn/FreeJSONViewer/)**
+**[Try it live →](https://gogn.github.io/FreeJSONViewer/)**
 
 ---
 
