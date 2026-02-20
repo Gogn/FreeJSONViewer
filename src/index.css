@@ -1,0 +1,660 @@
+/* ── Theme variables ── */
+:root[data-theme='dark'] {
+  --bg: #0f0f13;
+  --surface: #17171d;
+  --surface2: #1f1f27;
+  --border: #2a2a36;
+  --text: #dcdce8;
+  --text-muted: #6e6e88;
+  --accent: #7b8cff;
+
+  --json-key: #7ec8fb;
+  --json-string: #86d98a;
+  --json-number: #f0a868;
+  --json-boolean: #f87171;
+  --json-null: #6e6e88;
+
+  --error-bg: rgba(239, 68, 68, 0.08);
+  --error-border: rgba(239, 68, 68, 0.3);
+  --error-text: #f87171;
+
+  --match-bg: rgba(250, 204, 21, 0.12);
+}
+
+:root[data-theme='light'] {
+  --bg: #f7f7f8;
+  --surface: #ffffff;
+  --surface2: #f0f0f4;
+  --border: #58585b;
+  --text: #1a1a2e;
+  --text-muted: #777788;
+  --accent: #4f5dff;
+
+  --json-key: #0068c9;
+  --json-string: #237a3d;
+  --json-number: #b84f00;
+  --json-boolean: #b91c1c;
+  --json-null: #777788;
+
+  --error-bg: rgba(239, 68, 68, 0.06);
+  --error-border: rgba(239, 68, 68, 0.25);
+  --error-text: #dc2626;
+
+  --match-bg: rgba(250, 204, 21, 0.2);
+}
+
+/* ── Reset ── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  font-size: 14px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+button {
+  font-family: inherit;
+}
+
+/* ── Layout ── */
+.app {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.content {
+  flex: 1;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Header ── */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+  height: 46px;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
+}
+
+.header-title {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.4px;
+  color: var(--text);
+}
+
+.header-actions {
+  display: flex;
+  gap: 4px;
+}
+
+/* ── Buttons ── */
+.icon-btn {
+  background: none;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  cursor: pointer;
+  color: var(--text-muted);
+  padding: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition:
+    color 0.15s,
+    background 0.15s,
+    border-color 0.15s;
+  line-height: 1;
+}
+
+.icon-btn:hover {
+  color: var(--text);
+  background: var(--surface2);
+  border-color: var(--border);
+}
+
+.btn {
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  cursor: pointer;
+  color: var(--text);
+  padding: 4px 12px;
+  font-size: 12px;
+  font-weight: 500;
+  transition: background 0.15s;
+  white-space: nowrap;
+}
+
+.btn:hover:not(:disabled) {
+  background: var(--border);
+}
+
+.btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.btn-primary {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+
+.btn-primary:hover:not(:disabled) {
+  opacity: 0.9;
+  background: var(--accent);
+}
+
+.btn-ghost {
+  background: none;
+  border-color: transparent;
+  color: var(--text-muted);
+}
+
+.btn-ghost:hover:not(:disabled) {
+  background: var(--surface2);
+  border-color: var(--border);
+  color: var(--text);
+}
+
+/* ── Tab Bar ── */
+.tab-bar {
+  display: flex;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
+  padding: 0 12px;
+}
+
+.tab-btn {
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  cursor: pointer;
+  color: var(--text-muted);
+  padding: 9px 14px;
+  font-size: 13px;
+  font-weight: 500;
+  transition:
+    color 0.15s,
+    border-color 0.15s;
+}
+
+.tab-btn:hover:not(:disabled) {
+  color: var(--text);
+}
+
+.tab-btn.active {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+
+.tab-btn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+/* ── Error Banner ── */
+.error-banner {
+  background: var(--error-bg);
+  border-bottom: 1px solid var(--error-border);
+  color: var(--error-text);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 7px 16px;
+  font-size: 12px;
+  font-family: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', monospace;
+  flex-shrink: 0;
+}
+
+.error-banner-msg {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.error-banner-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 1.5px solid currentColor;
+  font-size: 10px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.error-banner-close {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--error-text);
+  font-size: 18px;
+  padding: 0 2px;
+  opacity: 0.6;
+  line-height: 1;
+  flex-shrink: 0;
+  margin-left: 12px;
+}
+
+.error-banner-close:hover {
+  opacity: 1;
+}
+
+/* ── Raw Text ── */
+.raw-tab {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  overflow: hidden;
+}
+
+.raw-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 14px;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
+}
+
+.toolbar-separator {
+  width: 1px;
+  height: 18px;
+  background: var(--border);
+  margin: 0 2px;
+}
+
+.raw-editor {
+  flex: 1;
+  resize: none;
+  background: var(--bg);
+  color: var(--text);
+  border: none;
+  border-left: 2px solid transparent;
+  outline: none;
+  padding: 16px;
+  font-family: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', ui-monospace, monospace;
+  font-size: 13px;
+  line-height: 1.7;
+  tab-size: 2;
+  transition: border-color 0.15s;
+}
+
+.raw-editor::placeholder {
+  color: var(--text-muted);
+  opacity: 0.5;
+}
+
+.raw-editor.error {
+  border-left-color: var(--error-text);
+}
+
+.raw-error-inline {
+  background: var(--error-bg);
+  color: var(--error-text);
+  padding: 6px 16px;
+  font-size: 12px;
+  font-family: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', ui-monospace, monospace;
+  border-top: 1px solid var(--error-border);
+  flex-shrink: 0;
+}
+
+/* ── Tree Viewer ── */
+.tree-tab {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  overflow: hidden;
+}
+
+.tree-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 14px;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
+}
+
+.search-input {
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  color: var(--text);
+  padding: 4px 10px;
+  font-size: 12px;
+  outline: none;
+  width: 220px;
+  transition: border-color 0.15s;
+  font-family: inherit;
+}
+
+.search-input:focus {
+  border-color: var(--accent);
+}
+
+.search-input::placeholder {
+  color: var(--text-muted);
+}
+
+.search-input:disabled {
+  opacity: 0.4;
+}
+
+.tree-scroll {
+  flex: 1;
+  overflow: auto;
+  padding: 10px 0;
+}
+
+.tree-empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: var(--text-muted);
+  font-size: 13px;
+}
+
+.tree-path-bar {
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+  padding: 5px 14px;
+  font-family: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', ui-monospace, monospace;
+  font-size: 12px;
+  color: var(--text-muted);
+  flex-shrink: 0;
+  min-height: 30px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.tree-path-label {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  opacity: 0.6;
+  flex-shrink: 0;
+}
+
+.tree-path-value {
+  color: var(--accent);
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.path-copy-btn {
+  padding: 3px;
+  color: var(--text-muted);
+}
+
+/* ── Tree Node ── */
+.tree-row {
+  display: flex;
+  align-items: baseline;
+  padding: 1px 16px;
+  cursor: pointer;
+  transition: background 0.1s;
+  user-select: none;
+}
+
+.tree-row:hover {
+  background: var(--surface2);
+}
+
+.tree-row.selected {
+  background: var(--surface2);
+  outline: 1px solid var(--border);
+  outline-offset: -1px;
+}
+
+.tree-row.match {
+  background: var(--match-bg);
+}
+
+.tree-toggle-wrap {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  color: var(--text-muted);
+  margin-right: 2px;
+}
+
+.tree-spacer {
+  display: inline-block;
+  width: 18px;
+  flex-shrink: 0;
+  margin-right: 2px;
+}
+
+.tree-key {
+  font-family: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', ui-monospace, monospace;
+  font-size: 13px;
+  color: var(--json-key);
+  line-height: 1.7;
+}
+
+.key-match {
+  background: var(--match-bg);
+  border-radius: 2px;
+}
+
+.value-match {
+  background: var(--match-bg);
+  border-radius: 2px;
+}
+
+.tree-colon {
+  font-family: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', ui-monospace, monospace;
+  font-size: 13px;
+  color: var(--text-muted);
+  margin: 0 5px 0 1px;
+  line-height: 1.7;
+}
+
+.tree-bracket {
+  font-family: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', ui-monospace, monospace;
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+
+.tree-preview {
+  font-family: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', ui-monospace, monospace;
+  font-size: 11px;
+  color: var(--text-muted);
+  margin: 0 4px;
+  opacity: 0.7;
+}
+
+.json-string {
+  font-family: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', ui-monospace, monospace;
+  font-size: 13px;
+  color: var(--json-string);
+  line-height: 1.7;
+}
+.json-number {
+  font-family: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', ui-monospace, monospace;
+  font-size: 13px;
+  color: var(--json-number);
+  line-height: 1.7;
+}
+.json-boolean {
+  font-family: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', ui-monospace, monospace;
+  font-size: 13px;
+  color: var(--json-boolean);
+  line-height: 1.7;
+}
+.json-null {
+  font-family: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', ui-monospace, monospace;
+  font-size: 13px;
+  color: var(--json-null);
+  line-height: 1.7;
+}
+
+/* ── Settings Modal ── */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  backdrop-filter: blur(2px);
+}
+
+.modal {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 24px;
+  width: 380px;
+  max-width: 92vw;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.modal-title {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.modal-section-title {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  color: var(--text-muted);
+  margin-bottom: 12px;
+}
+
+.modal-radio-group {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.modal-radio-label {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 8px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.1s;
+}
+
+.modal-radio-label:hover {
+  background: var(--surface2);
+}
+
+.modal-radio-label input {
+  accent-color: var(--accent);
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
+.modal-radio-name {
+  display: block;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.modal-radio-desc {
+  display: block;
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+.modal-footer {
+  margin-top: 24px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+/* ── About Modal ── */
+.about-modal {
+  width: 440px;
+}
+
+.about-description {
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--text-muted);
+}
+
+.about-features {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.about-feature-item {
+  display: flex;
+  flex-direction: column;
+  padding: 8px 10px;
+  border-radius: 6px;
+  transition: background 0.1s;
+}
+
+.about-feature-item:hover {
+  background: var(--surface2);
+}
+
+.about-feature-label {
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.about-feature-desc {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
